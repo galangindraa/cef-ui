@@ -27,9 +27,6 @@ type AppVisibilityStateSkin = {
 	// Additional properties can be added here if needed 
 	gender: string;
 	setGender: (string: string) => void;
-
-	withSkin: boolean;
-	setWithSkin: (boolean: boolean) => void;
 };
 
 const useAppVisibilitySkinMenu = create<AppVisibilityStateSkin>((set) => ({
@@ -40,8 +37,22 @@ const useAppVisibilitySkinMenu = create<AppVisibilityStateSkin>((set) => ({
 	toggle: () => set((state) => ({ showApp: !state.showApp })),
 	gender: 'Male',
 	setGender: (string: string) => set({ gender: string }),
-	withSkin: true,
-	setWithSkin: (boolean: boolean) => set({ withSkin: boolean }),
 }));
 
-export { useAppVisibilitySkinMenu, useAppVisibilityStore };
+type AppVisibilityStateSkinMenu = {
+	showApp: boolean;
+	setVisibility: (boolean: boolean) => void;
+	show: () => void;
+	hide: () => void;
+	toggle: () => void;
+};
+
+const useAppVisibilitySkinMenuList = create<AppVisibilityStateSkinMenu>((set) => ({
+	showApp: false,
+	setVisibility: (boolean: boolean) => set({ showApp: boolean }),
+	show: () => set({ showApp: true }),
+	hide: () => set({ showApp: false }),
+	toggle: () => set((state) => ({ showApp: !state.showApp })),
+}));
+
+export { useAppVisibilitySkinMenu, useAppVisibilitySkinMenuList, useAppVisibilityStore };

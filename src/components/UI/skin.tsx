@@ -6,61 +6,122 @@ import { useState } from 'react';
 
 const dataSkin = [
     {
-        "Male": [
-          { "id": 0, "name": "CJ" },
-          { "id": 1, "name": "Truth" },
-          { "id": 2, "name": "Maccer" },
-          { "id": 7, "name": "Old Reece" },
-          { "id": 20, "name": "Businessman" },
-          { "id": 21, "name": "White Male" },
-          { "id": 23, "name": "White Male 2" },
-          { "id": 24, "name": "Beach Male 1" },
-          { "id": 25, "name": "Beach Male 2" },
-          { "id": 26, "name": "Biker" },
-          { "id": 27, "name": "Businessman 2" },
-          { "id": 30, "name": "Fisherman" },
-          { "id": 31, "name": "Golfer" },
-          { "id": 32, "name": "Golfer 2" },
-          { "id": 34, "name": "Park Ranger" },
-          { "id": 35, "name": "Pilot" },
-          { "id": 36, "name": "Pizza Boy" },
-          { "id": 37, "name": "Policeman LS" },
-          { "id": 38, "name": "Policeman SF" },
-          { "id": 39, "name": "Policeman LV" },
-          { "id": 40, "name": "Security Guard" },
-          { "id": 41, "name": "Sheriff" },
-          { "id": 42, "name": "SWAT" },
-          { "id": 43, "name": "Army" },
-          { "id": 44, "name": "Black Suit" },
-          { "id": 45, "name": "Blue Suit" },
-          { "id": 46, "name": "Casual 1" },
-          { "id": 47, "name": "Casual 2" },
-          { "id": 48, "name": "Casual 3" },
-          { "id": 49, "name": "Casual 4" },
-          { "id": 50, "name": "Pimp" }
-        ],
-        "Female": [
-          { "id": 55, "name": "Nurse" },
-          { "id": 56, "name": "Waitress" },
-          { "id": 57, "name": "Businesswoman" },
-          { "id": 58, "name": "School Girl" },
-          { "id": 59, "name": "Secretary" },
-          { "id": 60, "name": "Lady in Red" },
-          { "id": 129, "name": "Housewife 1" },
-          { "id": 130, "name": "Housewife 2" },
-          { "id": 141, "name": "Bank Worker" },
-          { "id": 144, "name": "Female Cop" },
-          { "id": 150, "name": "Airport Ground Staff" },
-          { "id": 151, "name": "Female Mechanic" },
-          { "id": 190, "name": "Construction Worker (Female)" },
-          { "id": 191, "name": "Tourist Female" },
-          { "id": 193, "name": "Farmer Female" },
-          { "id": 194, "name": "Female Teacher" },
-          { "id": 211, "name": "Casino Female Worker" },
-          { "id": 217, "name": "Asian Female" },
-          { "id": 218, "name": "Female Sweater" },
-          { "id": 219, "name": "Female Hoodie" }
-        ]
+      "Male": [
+        { "id": 1, "name": "Skin 1" },
+        { "id": 2, "name": "Skin 2" },
+        { "id": 3, "name": "Skin 3" },
+        { "id": 4, "name": "Skin 4" },
+        { "id": 5, "name": "Skin 5" },
+        { "id": 6, "name": "Skin 6" },
+        { "id": 7, "name": "Skin 7" },
+        { "id": 8, "name": "Skin 8" },
+        { "id": 19, "name": "Skin 19" },
+        { "id": 20, "name": "Skin 20" },
+        { "id": 21, "name": "Skin 21" },
+        { "id": 22, "name": "Skin 22" },
+        { "id": 23, "name": "Skin 23" },
+        { "id": 25, "name": "Skin 25" },
+        { "id": 26, "name": "Skin 26" },
+        { "id": 28, "name": "Skin 28" },
+        { "id": 29, "name": "Skin 29" },
+        { "id": 42, "name": "Skin 42" },
+        { "id": 46, "name": "Skin 46" },  
+        { "id": 47, "name": "Skin 47" },  
+        { "id": 50, "name": "Skin 50" },
+        { "id": 59, "name": "Skin 59" },
+        { "id": 60, "name": "Skin 60" },
+        { "id": 66, "name": "Skin 66" },
+        { "id": 67, "name": "Skin 67" },
+        { "id": 86, "name": "Skin 86" },
+        { "id": 98, "name": "Skin 98" },
+        { "id": 100, "name": "Skin 100" },
+        { "id": 101, "name": "Skin 101" },
+        { "id": 102, "name": "Skin 102" },
+        { "id": 103, "name": "Skin 103" },
+        { "id": 104, "name": "Skin 104" },
+        { "id": 105, "name": "Skin 105" },
+        { "id": 106, "name": "Skin 106" },
+        { "id": 107, "name": "Skin 107" },
+        { "id": 108, "name": "Skin 108" },
+        { "id": 109, "name": "Skin 109" },
+        { "id": 110, "name": "Skin 110" },
+        { "id": 111, "name": "Skin 111" },
+        { "id": 112, "name": "Skin 112" },
+        { "id": 113, "name": "Skin 113" },
+        { "id": 114, "name": "Skin 114" },
+        { "id": 115, "name": "Skin 115" },
+        { "id": 116, "name": "Skin 116" },
+        { "id": 117, "name": "Skin 117" },
+        { "id": 118, "name": "Skin 118" },
+        { "id": 119, "name": "Skin 119" },
+        { "id": 120, "name": "Skin 120" },
+        { "id": 121, "name": "Skin 121" },
+        { "id": 122, "name": "Skin 122" },
+        { "id": 123, "name": "Skin 123" },
+        { "id": 124, "name": "Skin 124" },
+        { "id": 125, "name": "Skin 125" },
+        { "id": 126, "name": "Skin 126" },
+        { "id": 127, "name": "Skin 127" },
+        { "id": 170, "name": "Skin 170" },
+        { "id": 171, "name": "Skin 171" },
+        { "id": 176, "name": "Skin 176" },
+        { "id": 177, "name": "Skin 177" },
+        { "id": 180, "name": "Skin 180" },
+        { "id": 186, "name": "Skin 186" },
+        { "id": 208, "name": "Skin 208" },
+        { "id": 240, "name": "Skin 240" },
+        { "id": 247, "name": "Skin 247" },
+        { "id": 250, "name": "Skin 250" },
+        { "id": 259, "name": "Skin 259" },
+        { "id": 269, "name": "Skin 269" },
+        { "id": 270, "name": "Skin 270" },
+        { "id": 271, "name": "Skin 271" },
+        { "id": 272, "name": "Skin 272" },
+        { "id": 273, "name": "Skin 273" },
+        { "id": 289, "name": "Skin 289" },
+        { "id": 290, "name": "Skin 290" },
+        { "id": 291, "name": "Skin 291" },
+        { "id": 292, "name": "Skin 292" },
+        { "id": 293, "name": "Skin 293" },
+        { "id": 294, "name": "Skin 294" },
+        { "id": 297, "name": "Skin 297" },
+        { "id": 299, "name": "Skin 299" },
+        { "id": 303, "name": "Skin 303" },
+        { "id": 304, "name": "Skin 304" },
+        { "id": 305, "name": "Skin 305" },
+      ],
+      "Female": [
+        { "id": 11, "name": "Skin 11" },
+        { "id": 12, "name": "Skin 12" },
+        { "id": 13, "name": "Skin 13" },
+        { "id": 40, "name": "Skin 40" },
+        { "id": 41, "name": "Skin 41" },
+        { "id": 56, "name": "Skin 56" },
+        { "id": 65, "name": "Skin 65" },
+        { "id": 69, "name": "Skin 69" },
+        { "id": 76, "name": "Skin 76" },
+        { "id": 91, "name": "Skin 91" },
+        { "id": 93, "name": "Skin 93" },
+        { "id": 150, "name": "Skin 150" },
+        { "id": 169, "name": "Skin 169" },
+        { "id": 172, "name": "Skin 172" },
+        { "id": 190, "name": "Skin 190" },
+        { "id": 191, "name": "Skin 191" },
+        { "id": 192, "name": "Skin 192" },
+        { "id": 193, "name": "Skin 193" },
+        { "id": 194, "name": "Skin 194" },
+        { "id": 195, "name": "Skin 195" },  
+        { "id": 211, "name": "Skin 211" },
+        { "id": 214, "name": "Skin 214" },
+        { "id": 215, "name": "Skin 215" },
+        { "id": 216, "name": "Skin 216" },
+        { "id": 219, "name": "Skin 219" },
+        { "id": 224, "name": "Skin 224" },
+        { "id": 225, "name": "Skin 225" },
+        { "id": 226, "name": "Skin 226" },
+        { "id": 233, "name": "Skin 233" },  
+        { "id": 298, "name": "Skin 298" },
+      ]
     }
       
 ]
@@ -76,12 +137,44 @@ const dataHat = [
   }
 ]
 
+const dataGlasses = [
+  {
+    "id": 19033,
+    "name": "Glass1"
+  },
+  {
+    "id": 19012,
+    "name": "Glass2"
+  },
+]
+
+const dataMask = [
+  {
+    "id": 19038,
+    "name": "Mask1"
+  },
+  {
+    "id": 19036,
+    "name": "Mask2"
+  }
+]
+
+const dataBackpack = [
+  {
+    "id": 19559,
+    "name": "Backpack1"
+  },
+  {
+    "id": 1550,
+    "name": "Backpack2"
+  }
+]
+
 export function SkinMenu() {
   const theme = useMantineTheme();
 
-  const { showApp, setVisibility, gender, setGender, withSkin, setWithSkin } = useAppVisibilitySkinMenu();
+  const { showApp, setVisibility, gender, setGender } = useAppVisibilitySkinMenu();
   
-  // State untuk menyimpan item yang dipilih di setiap tab
   const [selectedItems, setSelectedItems] = useState({
     skin: null as any,
     hat: null as any,
@@ -91,11 +184,8 @@ export function SkinMenu() {
   });
 
   useCefEvent<string>("ui:showSkinMenu", (data) => {
-    const parsedData = JSON.parse(data);
-    console.log(parsedData);
     setVisibility(true);
-    setWithSkin(parsedData.whitskin);
-    setGender(parsedData.gender);
+    setGender(data);
   });
 
   const handleItemSelect = (tabType: string, item: any) => {
@@ -145,27 +235,6 @@ export function SkinMenu() {
             alignItems: "center",
           }}
         >
-          {/* Debug Button - Outside the card */}
-          <Box
-            pos="fixed"
-            top="20px"
-            right="20px"
-            style={{ pointerEvents: "auto", zIndex: 1000 }}
-          >
-            <Button
-              variant="filled"
-              color={withSkin ? "green" : "red"}
-              size="sm"
-              onClick={() => setWithSkin(!withSkin)}
-              style={{
-                backgroundColor: withSkin ? theme.colors.green[6] : theme.colors.red[6],
-                border: `1px solid ${withSkin ? theme.colors.green[4] : theme.colors.red[4]}`,
-              }}
-            >
-              {withSkin ? "Hide Skin Tabs" : "Show Skin Tabs"}
-            </Button>
-          </Box>
-
           <Container size="md" style={{ pointerEvents: "auto", ...transStyles }}>
             <Card 
               radius="md" 
@@ -179,7 +248,6 @@ export function SkinMenu() {
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
               }}
             >
-              {/* Header */}
               <Group justify="space-between" mb="lg">
                 <Title order={2} c="white" fw={600}>
                   Character Customization
@@ -199,7 +267,7 @@ export function SkinMenu() {
                 <Tabs 
                   variant="pills" 
                   radius="md" 
-                  defaultValue={withSkin ? "skin" : "hat"}
+                  defaultValue={"skin"}
                   color="blue"
                 >
                   <Tabs.List style={{ 
@@ -207,14 +275,12 @@ export function SkinMenu() {
                     padding: '4px',
                     borderRadius: '8px'
                   }}>
-                    {withSkin && (
-                      <Tabs.Tab value="skin" style={{ flex: 1 }}>
-                        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                          <Shirt size={16} />
-                          <Text size="sm" fw={500}>Skin</Text>
-                        </div>
-                      </Tabs.Tab>
-                    )}
+                    <Tabs.Tab value="skin" style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                        <Shirt size={16} />
+                        <Text size="sm" fw={500}>Skin</Text>
+                      </div>
+                    </Tabs.Tab>
                     <Tabs.Tab value="hat" style={{ flex: 1 }}>
                       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 6 }}>
                         <HardHat size={16} />
@@ -240,84 +306,81 @@ export function SkinMenu() {
                       </div>
                     </Tabs.Tab>
                   </Tabs.List>
-
-                  {withSkin && (
-                    <Tabs.Panel value="skin" pt="md">
-                      <div style={{ 
-                        width: '100%', 
-                        height: '600px', 
-                        padding: '13px',
-                        backgroundColor: theme.colors.dark[7],
-                        borderRadius: '8px',
-                        border: `1px solid ${theme.colors.dark[5]}`,
-                        overflowY: 'auto'
-                      }}>
-                        {dataSkin.map((category, index) => (
-                          <Grid key={index} gutter="md">
-                            {category[gender as keyof typeof category]?.map((item) => (
-                              <Grid.Col key={item.id} span={3}>
-                                <Card 
-                                  p="md" 
-                                  withBorder 
-                                  radius="md"
-                                  style={{ 
-                                    display: 'flex', 
-                                    flexDirection: 'column',
-                                    justifyContent: 'center', 
-                                    alignItems: 'center',
-                                    cursor: 'pointer',
-                                    backgroundColor: selectedItems.skin?.id === item.id 
-                                      ? theme.colors.blue[9] 
-                                      : theme.colors.dark[7],
-                                    border: `1px solid ${selectedItems.skin?.id === item.id 
-                                      ? theme.colors.blue[6] 
-                                      : theme.colors.dark[5]}`,
-                                    transition: 'all 0.2s ease',
-                                    height: '180px'
-                                  }}
-                                  onMouseEnter={(e) => {
-                                    if (selectedItems.skin?.id !== item.id) {
-                                      e.currentTarget.style.backgroundColor = theme.colors.blue[9];
-                                      e.currentTarget.style.borderColor = theme.colors.blue[6];
-                                    }
-                                  }}
-                                  onMouseLeave={(e) => {
-                                    if (selectedItems.skin?.id !== item.id) {
-                                      e.currentTarget.style.backgroundColor = theme.colors.dark[7];
-                                      e.currentTarget.style.borderColor = theme.colors.dark[5];
-                                    }
-                                  }}
-                                  onClick={() => {
-                                    handleItemSelect('skin', item);
-                                  }}
-                                >
-                                  <Image
-                                    src={`https://assets.open.mp/assets/images/skins/${item.id}.png`}
-                                    alt={item.name}
-                                    w={170}
-                                    h={170}
-                                    fit="contain"
-                                    fallbackSrc="https://placehold.co/130x130/666666/FFFFFF?text=?"
-                                    style={{ borderRadius: '6px' }}
-                                  />
-                                  {selectedItems.skin?.id === item.id && (
-                                    <Badge 
-                                      color="blue" 
-                                      variant="filled" 
-                                      size="sm" 
-                                      mt="xs"
-                                    >
-                                      Selected
-                                    </Badge>
-                                  )}
-                                </Card>
-                              </Grid.Col>
-                            ))}
-                          </Grid>
-                        ))}
-                      </div>
-                    </Tabs.Panel>
-                  )}
+                  <Tabs.Panel value="skin" pt="md">
+                    <div style={{ 
+                      width: '100%', 
+                      height: '600px', 
+                      padding: '13px',
+                      backgroundColor: theme.colors.dark[7],
+                      borderRadius: '8px',
+                      border: `1px solid ${theme.colors.dark[5]}`,
+                      overflowY: 'auto'
+                    }}>
+                      {dataSkin.map((category, index) => (
+                        <Grid key={index} gutter="md">
+                          {category[gender as keyof typeof category]?.map((item) => (
+                            <Grid.Col key={item.id} span={3}>
+                              <Card 
+                                p="md" 
+                                withBorder 
+                                radius="md"
+                                style={{ 
+                                  display: 'flex', 
+                                  flexDirection: 'column',
+                                  justifyContent: 'center', 
+                                  alignItems: 'center',
+                                  cursor: 'pointer',
+                                  backgroundColor: selectedItems.skin?.id === item.id 
+                                    ? theme.colors.blue[9] 
+                                    : theme.colors.dark[7],
+                                  border: `1px solid ${selectedItems.skin?.id === item.id 
+                                    ? theme.colors.blue[6] 
+                                    : theme.colors.dark[5]}`,
+                                  transition: 'all 0.2s ease',
+                                  height: '180px'
+                                }}
+                                onMouseEnter={(e) => {
+                                  if (selectedItems.skin?.id !== item.id) {
+                                    e.currentTarget.style.backgroundColor = theme.colors.blue[9];
+                                    e.currentTarget.style.borderColor = theme.colors.blue[6];
+                                  }
+                                }}
+                                onMouseLeave={(e) => {
+                                  if (selectedItems.skin?.id !== item.id) {
+                                    e.currentTarget.style.backgroundColor = theme.colors.dark[7];
+                                    e.currentTarget.style.borderColor = theme.colors.dark[5];
+                                  }
+                                }}
+                                onClick={() => {
+                                  handleItemSelect('skin', item);
+                                }}
+                              >
+                                <Image
+                                  src={`https://assets.open.mp/assets/images/skins/${item.id}.png`}
+                                  alt={item.name}
+                                  w={170}
+                                  h={170}
+                                  fit="contain"
+                                  fallbackSrc="https://placehold.co/130x130/666666/FFFFFF?text=?"
+                                  style={{ borderRadius: '6px' }}
+                                />
+                                {selectedItems.skin?.id === item.id && (
+                                  <Badge 
+                                    color="blue" 
+                                    variant="filled" 
+                                    size="sm" 
+                                    mt="xs"
+                                  >
+                                    Selected
+                                  </Badge>
+                                )}
+                              </Card>
+                            </Grid.Col>
+                          ))}
+                        </Grid>
+                      ))}
+                    </div>
+                  </Tabs.Panel>
 
                   <Tabs.Panel value="hat" pt="md">
                     <ScrollArea h={600}>
@@ -331,7 +394,6 @@ export function SkinMenu() {
                         overflowY: 'auto'
                       }}>
                         <Grid gutter="md">
-                          {/* Sample hat items - replace with actual data */}
                           {dataHat.map((item) => (
                             <Grid.Col key={item.id} span={3}>
                               <Card 
@@ -344,23 +406,23 @@ export function SkinMenu() {
                                   justifyContent: 'center', 
                                   alignItems: 'center',
                                   cursor: 'pointer',
-                                  backgroundColor: selectedItems.hat?.id === item 
+                                  backgroundColor: selectedItems.hat?.id === item.id 
                                     ? theme.colors.blue[9] 
                                     : theme.colors.dark[7],
-                                  border: `1px solid ${selectedItems.hat?.id === item 
+                                  border: `1px solid ${selectedItems.hat?.id === item.id 
                                     ? theme.colors.blue[6] 
                                     : theme.colors.dark[5]}`,
                                   transition: 'all 0.2s ease',
                                   height: '180px'
                                 }}
                                 onMouseEnter={(e) => {
-                                  if (selectedItems.hat?.id !== item) {
+                                  if (selectedItems.hat?.id !== item.id) {
                                     e.currentTarget.style.backgroundColor = theme.colors.blue[9];
                                     e.currentTarget.style.borderColor = theme.colors.blue[6];
                                   }
                                 }}
                                 onMouseLeave={(e) => {
-                                  if (selectedItems.hat?.id !== item) {
+                                  if (selectedItems.hat?.id !== item.id) {
                                     e.currentTarget.style.backgroundColor = theme.colors.dark[7];
                                     e.currentTarget.style.borderColor = theme.colors.dark[5];
                                   }
@@ -369,7 +431,6 @@ export function SkinMenu() {
                                   handleItemSelect('hat', { id: item.id, name: item.name });
                                 }}
                               > 
-                                {/* Image and slectd */  }
                                 <Image
                                   src={`https://files.prineside.com/gtasa_samp_model_id/white/${item.id}_w.jpg`}
                                   alt={item.name}
@@ -403,9 +464,8 @@ export function SkinMenu() {
                         overflowY: 'auto'
                       }}>
                         <Grid gutter="md">
-                          {/* Sample glasses items - replace with actual data */}
-                          {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                            <Grid.Col key={item} span={3}>
+                          {dataGlasses.map((item) => (
+                            <Grid.Col key={item.id} span={3}>
                               <Card 
                                 p="md" 
                                 withBorder 
@@ -416,43 +476,44 @@ export function SkinMenu() {
                                   justifyContent: 'center', 
                                   alignItems: 'center',
                                   cursor: 'pointer',
-                                  backgroundColor: selectedItems.glasses?.id === item 
+                                  backgroundColor: selectedItems.glasses?.id === item.id 
                                     ? theme.colors.blue[9] 
                                     : theme.colors.dark[7],
-                                  border: `1px solid ${selectedItems.glasses?.id === item 
+                                  border: `1px solid ${selectedItems.glasses?.id === item.id
                                     ? theme.colors.blue[6] 
                                     : theme.colors.dark[5]}`,
                                   transition: 'all 0.2s ease',
                                   height: '180px'
                                 }}
                                 onMouseEnter={(e) => {
-                                  if (selectedItems.glasses?.id !== item) {
+                                  if (selectedItems.glasses?.id !== item.id) {
                                     e.currentTarget.style.backgroundColor = theme.colors.blue[9];
                                     e.currentTarget.style.borderColor = theme.colors.blue[6];
                                   }
                                 }}
                                 onMouseLeave={(e) => {
-                                  if (selectedItems.glasses?.id !== item) {
+                                  if (selectedItems.glasses?.id !== item.id) {
                                     e.currentTarget.style.backgroundColor = theme.colors.dark[7];
                                     e.currentTarget.style.borderColor = theme.colors.dark[5];
                                   }
                                 }}
                                 onClick={() => {
-                                  handleItemSelect('glasses', { id: item, name: `Glasses ${item}` });
+                                  handleItemSelect('glasses', { id: item.id, name: item.name });
                                 }}
                               >
-                                <Glasses size={80} color={theme.colors.blue[5]} />
-                                <Text size="sm" mt="md" ta="center">Glasses {item}</Text>
-                                {selectedItems.glasses?.id === item && (
-                                  <Badge 
-                                    color="blue" 
-                                    variant="filled" 
-                                    size="sm" 
-                                    mt="xs"
-                                  >
-                                    Selected
-                                  </Badge>
-                                )}
+                                <Image
+                                  src={`https://files.prineside.com/gtasa_samp_model_id/white/${item.id}_w.jpg`}
+                                  alt={item.name}
+                                  w={170}
+                                  h={170}
+                                  fit="contain"
+                                  fallbackSrc="https://placehold.co/130x130/666666/FFFFFF?text=?"
+                                  style={{ 
+                                    borderRadius: '6px',
+                                    mixBlendMode: 'multiply',
+                                    filter: 'contrast(1.1) brightness(1.1)'
+                                  }}
+                                />
                               </Card>
                             </Grid.Col>
                           ))}
@@ -473,9 +534,8 @@ export function SkinMenu() {
                         overflowY: 'auto'
                       }}>
                         <Grid gutter="md">
-                          {/* Sample mask items - replace with actual data */}
-                          {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                            <Grid.Col key={item} span={3}>
+                          {dataMask.map((item) => (
+                            <Grid.Col key={item.id} span={3}>
                               <Card 
                                 p="md" 
                                 withBorder 
@@ -486,43 +546,44 @@ export function SkinMenu() {
                                   justifyContent: 'center', 
                                   alignItems: 'center',
                                   cursor: 'pointer',
-                                  backgroundColor: selectedItems.mask?.id === item 
+                                  backgroundColor: selectedItems.mask?.id === item.id 
                                     ? theme.colors.blue[9] 
                                     : theme.colors.dark[7],
-                                  border: `1px solid ${selectedItems.mask?.id === item 
+                                  border: `1px solid ${selectedItems.mask?.id === item.id 
                                     ? theme.colors.blue[6] 
                                     : theme.colors.dark[5]}`,
                                   transition: 'all 0.2s ease',
                                   height: '180px'
                                 }}
                                 onMouseEnter={(e) => {
-                                  if (selectedItems.mask?.id !== item) {
+                                  if (selectedItems.mask?.id !== item.id) {
                                     e.currentTarget.style.backgroundColor = theme.colors.blue[9];
                                     e.currentTarget.style.borderColor = theme.colors.blue[6];
                                   }
                                 }}
                                 onMouseLeave={(e) => {
-                                  if (selectedItems.mask?.id !== item) {
+                                  if (selectedItems.mask?.id !== item.id) {
                                     e.currentTarget.style.backgroundColor = theme.colors.dark[7];
                                     e.currentTarget.style.borderColor = theme.colors.dark[5];
                                   }
                                 }}
                                 onClick={() => {
-                                  handleItemSelect('mask', { id: item, name: `Mask ${item}` });
+                                  handleItemSelect('mask', { id: item.id, name: item.name });
                                 }}
                               >
-                                <Drama size={80} color={theme.colors.blue[5]} />
-                                <Text size="sm" mt="md" ta="center">Mask {item}</Text>
-                                {selectedItems.mask?.id === item && (
-                                  <Badge 
-                                    color="blue" 
-                                    variant="filled" 
-                                    size="sm" 
-                                    mt="xs"
-                                  >
-                                    Selected
-                                  </Badge>
-                                )}
+                                <Image
+                                  src={`https://files.prineside.com/gtasa_samp_model_id/white/${item.id}_w.jpg`}
+                                  alt={item.name}
+                                  w={170}
+                                  h={170}
+                                  fit="contain"
+                                  fallbackSrc="https://placehold.co/130x130/666666/FFFFFF?text=?"
+                                  style={{ 
+                                    borderRadius: '6px',
+                                    mixBlendMode: 'multiply',
+                                    filter: 'contrast(1.1) brightness(1.1)'
+                                  }}
+                                />
                               </Card>
                             </Grid.Col>
                           ))}
@@ -543,9 +604,8 @@ export function SkinMenu() {
                         overflowY: 'auto'
                       }}>
                         <Grid gutter="md">
-                          {/* Sample backpack items - replace with actual data */}
-                          {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                            <Grid.Col key={item} span={3}>
+                          {dataBackpack.map((item) => (
+                            <Grid.Col key={item.id} span={3}>
                               <Card 
                                 p="md" 
                                 withBorder 
@@ -556,43 +616,44 @@ export function SkinMenu() {
                                   justifyContent: 'center', 
                                   alignItems: 'center',
                                   cursor: 'pointer',
-                                  backgroundColor: selectedItems.backpack?.id === item 
+                                  backgroundColor: selectedItems.backpack?.id === item.id 
                                     ? theme.colors.blue[9] 
                                     : theme.colors.dark[7],
-                                  border: `1px solid ${selectedItems.backpack?.id === item 
+                                  border: `1px solid ${selectedItems.backpack?.id === item.id 
                                     ? theme.colors.blue[6] 
                                     : theme.colors.dark[5]}`,
                                   transition: 'all 0.2s ease',
                                   height: '180px'
                                 }}
                                 onMouseEnter={(e) => {
-                                  if (selectedItems.backpack?.id !== item) {
+                                  if (selectedItems.backpack?.id !== item.id) { 
                                     e.currentTarget.style.backgroundColor = theme.colors.blue[9];
                                     e.currentTarget.style.borderColor = theme.colors.blue[6];
                                   }
                                 }}
                                 onMouseLeave={(e) => {
-                                  if (selectedItems.backpack?.id !== item) {
+                                  if (selectedItems.backpack?.id !== item.id) {
                                     e.currentTarget.style.backgroundColor = theme.colors.dark[7];
                                     e.currentTarget.style.borderColor = theme.colors.dark[5];
                                   }
                                 }}
                                 onClick={() => {
-                                  handleItemSelect('backpack', { id: item, name: `Backpack ${item}` });
+                                  handleItemSelect('backpack', { id: item.id, name: item.name });
                                 }}
                               >
-                                <Backpack size={80} color={theme.colors.blue[5]} />
-                                <Text size="sm" mt="md" ta="center">Backpack {item}</Text>
-                                {selectedItems.backpack?.id === item && (
-                                  <Badge 
-                                    color="blue" 
-                                    variant="filled" 
-                                    size="sm" 
-                                    mt="xs"
-                                  >
-                                    Selected
-                                  </Badge>
-                                )}
+                                <Image
+                                  src={`https://files.prineside.com/gtasa_samp_model_id/white/${item.id}_w.jpg`}
+                                  alt={item.name}
+                                  w={170}
+                                  h={170}
+                                  fit="contain"
+                                  fallbackSrc="https://placehold.co/130x130/666666/FFFFFF?text=?"
+                                  style={{ 
+                                    borderRadius: '6px',
+                                    mixBlendMode: 'multiply',
+                                    filter: 'contrast(1.1) brightness(1.1)'
+                                  }}
+                                />
                               </Card>
                             </Grid.Col>
                           ))}
@@ -605,7 +666,7 @@ export function SkinMenu() {
               <Button
                 variant="outline"
                 color="blue"
-                size="md"
+                size="xl"
                 fullWidth
                 mt="md"
                 onClick={handleApply}
