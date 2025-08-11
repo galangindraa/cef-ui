@@ -85,7 +85,6 @@ export function HudUI() {
                                 />
                             </Box>
 
-                            {/* Hunger Bar */}
                             <Box style={{ position: 'relative', width: '25%', height: '100%' }}>
                                 <Box
                                     bg="#1a2e1a"
@@ -117,7 +116,6 @@ export function HudUI() {
                                 />
                             </Box>
 
-                            {/* Thirst Bar */}
                             <Box style={{ position: 'relative', width: '25%', height: '100%' }}>
                                 <Box
                                     bg="#1a1a2e"
@@ -149,7 +147,6 @@ export function HudUI() {
                                 />
                             </Box>
 
-                            {/* Mental Bar */}
                             <Box style={{ position: 'relative', width: '25%', height: '100%' }}>
                                 <Box
                                     bg="#2e1a2e"
@@ -182,7 +179,6 @@ export function HudUI() {
                             </Box>
                         </Flex>
                         
-                        {/* Progress Bar */}
                         <Progress 
                             mt="0.3vh" 
                             size="lg" 
