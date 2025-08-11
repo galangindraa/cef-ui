@@ -55,4 +55,41 @@ const useAppVisibilitySkinMenuList = create<AppVisibilityStateSkinMenu>((set) =>
 	toggle: () => set((state) => ({ showApp: !state.showApp })),
 }));
 
-export { useAppVisibilitySkinMenu, useAppVisibilitySkinMenuList, useAppVisibilityStore };
+type AppVisibilityStateDeath = {
+	showApp: boolean;
+	setVisibility: (boolean: boolean) => void;
+	show: () => void;
+	hide: () => void;
+	toggle: () => void;
+	health: number;
+	setHealth: (number: number) => void;
+	hunger: number;
+	setHunger: (number: number) => void;
+	thirst: number;
+	setThirst: (number: number) => void;	
+	mental: number;
+	setMental: (number: number) => void;
+	armor: number;
+	setArmor: (number: number) => void;	
+};
+
+const useAppVisibilityHud = create<AppVisibilityStateDeath>((set) => ({
+	showApp: false,
+	setVisibility: (boolean: boolean) => set({ showApp: boolean }),
+	show: () => set({ showApp: true }),
+	hide: () => set({ showApp: false }),
+	toggle: () => set((state) => ({ showApp: !state.showApp })),
+
+	health: 0,
+	setHealth: (number: number) => set({ health: number }),
+	hunger: 0,
+	setHunger: (number: number) => set({ hunger: number }),
+	thirst: 0,
+	setThirst: (number: number) => set({ thirst: number }),
+	mental: 0,
+	setMental: (number: number) => set({ mental: number }),
+	armor: 0,
+	setArmor: (number: number) => set({ armor: number }),
+}));
+
+export { useAppVisibilitySkinMenu, useAppVisibilitySkinMenuList, useAppVisibilityStore, useAppVisibilityHud };

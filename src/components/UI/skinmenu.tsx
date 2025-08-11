@@ -1,4 +1,4 @@
-import { Car, Grid, X, Eye, Check, Trash2, Settings } from "lucide-react";
+import { Car, Upload, X, Eye, Check, Trash2, Settings, Edit } from "lucide-react";
 import { Transition, Flex, Card, Title, Group, useMantineTheme, Button, Container, Text, Stack, Menu, ActionIcon, Badge, SimpleGrid, Image, Loader, Center, ScrollArea } from "@mantine/core";
 import { useCefEvent } from '../../hooks/useNuiEvent';
 import { useAppVisibilitySkinMenuList } from '../../stores/appVisibilityStore';
@@ -60,6 +60,11 @@ export function SkinMenuList() {
 
   const handlePreviewSkin = (skin: SkinItem) => {
     (window as any).cef.emit("ui:previewSkinList", skin.id);
+  };
+
+  const handleUpdateSkin = (skin: SkinItem) => {
+    setVisibility(false);
+    (window as any).cef.emit("ui:updateSkinList", skin.id);
   };
 
   const handleApplySkin = (skin: SkinItem) => {
@@ -283,6 +288,12 @@ export function SkinMenuList() {
                                                   onClick={() => handlePreviewSkin(skin)}
                                                 >
                                                   Preview
+                                                </Menu.Item>
+                                                <Menu.Item
+                                                  leftSection={<Upload size={14} />}
+                                                  onClick={() => handleUpdateSkin(skin)}
+                                                >
+                                                  Update Skin
                                                 </Menu.Item>
                                                 <Menu.Item
                                                   leftSection={<Check size={14} />}
