@@ -92,4 +92,20 @@ const useAppVisibilityHud = create<AppVisibilityStateDeath>((set) => ({
 	setArmor: (number: number) => set({ armor: number }),
 }));
 
-export { useAppVisibilitySkinMenu, useAppVisibilitySkinMenuList, useAppVisibilityStore, useAppVisibilityHud };
+type AppVisibilityStateSpeedometer = {
+	showApp: boolean;
+	setVisibility: (boolean: boolean) => void;
+	show: () => void;
+	hide: () => void;
+	toggle: () => void;
+};
+
+const useAppVisibilitySpeedometer = create<AppVisibilityStateSpeedometer>((set) => ({	
+	showApp: false,
+	setVisibility: (boolean: boolean) => set({ showApp: boolean }),
+	show: () => set({ showApp: true }),
+	hide: () => set({ showApp: false }),
+	toggle: () => set((state) => ({ showApp: !state.showApp })),
+}));
+
+export { useAppVisibilitySkinMenu, useAppVisibilitySkinMenuList, useAppVisibilityStore, useAppVisibilityHud, useAppVisibilitySpeedometer };

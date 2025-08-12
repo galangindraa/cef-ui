@@ -56,7 +56,7 @@ export function HudUI() {
                             {/* Health Bar */}
                             <Box style={{ position: 'relative', width: '25%', height: '100%' }}>
                                 <Box
-                                    bg="#2d1b1b"
+                                    bg="#1a1a1a"
                                     style={{
                                         position: 'absolute',
                                         width: '100%',
@@ -87,7 +87,7 @@ export function HudUI() {
 
                             <Box style={{ position: 'relative', width: '25%', height: '100%' }}>
                                 <Box
-                                    bg="#1a2e1a"
+                                    bg="#1a1a1a"
                                     style={{
                                         position: 'absolute',
                                         width: '100%',
@@ -118,7 +118,7 @@ export function HudUI() {
 
                             <Box style={{ position: 'relative', width: '25%', height: '100%' }}>
                                 <Box
-                                    bg="#1a1a2e"
+                                    bg="#1a1a1a"
                                     style={{
                                         position: 'absolute',
                                         width: '100%',
@@ -126,7 +126,7 @@ export function HudUI() {
                                     }}
                                 />
                                 <Box
-                                    bg="#3742fa"
+                                    bg="#00b4d8"
                                     style={{
                                         position: 'absolute',
                                         bottom: 0,
@@ -149,7 +149,7 @@ export function HudUI() {
 
                             <Box style={{ position: 'relative', width: '25%', height: '100%' }}>
                                 <Box
-                                    bg="#2e1a2e"
+                                    bg="#1a1a1a"
                                     style={{
                                         position: 'absolute',
                                         width: '100%',
@@ -157,7 +157,7 @@ export function HudUI() {
                                     }}
                                 />
                                 <Box
-                                    bg="#a55eea"
+                                    bg="#ffa502"
                                     style={{
                                         position: 'absolute',
                                         bottom: 0,
