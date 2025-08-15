@@ -1,5 +1,5 @@
 import { Transition, Flex, Card, useMantineTheme, Box, Progress, Text } from "@mantine/core";
-import { Gauge, Fuel } from "lucide-react";
+import { Gauge, Fuel, Shield, ShieldOff, Group } from "lucide-react";
 import { useCefEvent } from '../../hooks/useNuiEvent';
 import { useAppVisibilitySpeedometer } from '../../stores/appVisibilityStore';
 import { useState, useEffect } from 'react';
@@ -10,6 +10,7 @@ export function HudUISpeedometer() {
     const [speed, setSpeed] = useState(0);
     const [animatedSpeed, setAnimatedSpeed] = useState(0);
     const [fuel, setFuel] = useState(100);
+    const [seatbeltOn, setSeatbeltOn] = useState(false);
 
     useCefEvent('ui:showSpeedometer', () => {
         setVisibility(true);
@@ -17,12 +18,22 @@ export function HudUISpeedometer() {
 
     useCefEvent('ui:hideSpeedometer', () => {
         setVisibility(false);
+        setSeatbeltOn(false);
     });
 
     useCefEvent<any>('ui:updateSpedoData', (data) => {
         const dataJ = JSON.parse(data);
         setSpeed(dataJ.speed);
         setFuel(dataJ.fuel);
+    });
+
+    useCefEvent<boolean>('ui:toggleSeatbelt', (data) => {
+        setSeatbeltOn(data);
+    });
+
+    useCefEvent('ui:setSeatbelt', (data) => {
+        const dataJ = JSON.parse(data);
+        setSeatbeltOn(dataJ.seatbelt);
     });
 
     useEffect(() => {
@@ -40,6 +51,10 @@ export function HudUISpeedometer() {
         if (fuelLevel > 50) return '#00b4d8';
         if (fuelLevel > 20) return '#0077b6';
         return '#023e8a'
+    };
+
+    const getSeatbeltColor = () => {
+        return seatbeltOn ? '#00b4d8' : '#ff6b6b';
     };
 
     return (
@@ -129,8 +144,7 @@ export function HudUISpeedometer() {
                             </Text>
                         </Flex>
                     </Card>
-
-                    {/* Speedometer */}
+                        {/* Speedometer */}
                     <Card
                         shadow="lg"
                         radius={0}
@@ -165,22 +179,46 @@ export function HudUISpeedometer() {
                                         fontFamily: 'monospace',
                                         textShadow: `0 0 15px ${getSpeedColor()}`,
                                         letterSpacing: '1px',
+                                        minWidth: '30px',
+                                        textAlign: 'center',
                                     }}
                                 >
                                     {animatedSpeed.toFixed(0)}
                                 </Text>
-                                <Text
-                                    size="sm"
-                                    fw={600}
+                                <Flex align="center" gap="xs">
+                                    <Text
+                                        size="sm"
+                                        fw={600}
+                                        style={{
+                                            color: 'rgba(255,255,255,0.8)',
+                                            alignSelf: 'flex-end',
+                                            marginBottom: '0px',
+                                            letterSpacing: '0.5px',
+                                        }}
+                                    >
+                                        KM/H
+                                    </Text>
+                                </Flex>
+
+                                <Box
                                     style={{
-                                        color: 'rgba(255,255,255,0.8)',
-                                        alignSelf: 'flex-end',
-                                        marginBottom: '6px',
-                                        letterSpacing: '0.5px',
+                                        color: getSeatbeltColor(),
+                                        backgroundColor: seatbeltOn ? 'rgba(0,180,216,0.15)' : 'rgba(255,107,107,0.15)',
+                                        borderRadius: '8px',
+                                        pointerEvents: "none",
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        width: '20px',
+                                        height: '20px',
                                     }}
                                 >
-                                    KM/H
-                                </Text>
+                                    {seatbeltOn ? (
+                                        <Shield size={20} style={{ filter: 'drop-shadow(0 0 8px currentColor)' }} />
+                                    ) : (
+                                        <ShieldOff size={20} style={{ filter: 'drop-shadow(0 0 8px currentColor)' }} />
+                                    )}
+                                </Box>
                             </Flex>
 
                             {/* Speed Progress Bar */}

@@ -1,4 +1,5 @@
 import { BackgroundImage, Button, MantineProvider } from '@mantine/core';
+import { MantineEmotionProvider } from '@mantine/emotion';
 import React from "react";
 import theme from '../theme';
 import { isEnvBrowser } from '../utils/misc';
@@ -8,22 +9,27 @@ import { SkinMenu } from './UI/skin';
 import { SkinMenuList } from './UI/skinmenu';
 import { HudUI } from './UI/hud';
 import { HudUISpeedometer } from './UI/spedometer';
+import Notifications from './UI/notify';
 const App: React.FC = () => {
   return (  
-    <MantineProvider theme={theme} defaultColorScheme='dark'>
-      <Wrapper>
-        <UI />
-        <SkinMenu />
-        <SkinMenuList />
-        <HudUI />
-        <HudUISpeedometer />
-      </Wrapper>
-    </MantineProvider>
+    <MantineEmotionProvider>
+      <MantineProvider theme={theme} defaultColorScheme='dark'>
+        <Wrapper>
+          <Notifications />
+          <UI />
+          <SkinMenu />
+          <SkinMenuList />
+          <HudUI />
+          <HudUISpeedometer />
+        </Wrapper>
+      </MantineProvider>
+    </MantineEmotionProvider>
   );
 };
 
 export default App;
 
+import Notify from './UI/notify';
 import { useAppVisibilitySkinMenu, useAppVisibilitySkinMenuList, useAppVisibilityStore, useAppVisibilityHud, useAppVisibilitySpeedometer } from '../stores/appVisibilityStore';
 function Wrapper({ children }: { children: React.ReactNode }) {
   const { showApp, setVisibility} = useAppVisibilityStore();

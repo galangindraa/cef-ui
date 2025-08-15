@@ -80,15 +80,15 @@ const useAppVisibilityHud = create<AppVisibilityStateDeath>((set) => ({
 	hide: () => set({ showApp: false }),
 	toggle: () => set((state) => ({ showApp: !state.showApp })),
 
-	health: 0,
+	health: 100,
 	setHealth: (number: number) => set({ health: number }),
-	hunger: 0,
+	hunger: 100,
 	setHunger: (number: number) => set({ hunger: number }),
-	thirst: 0,
+	thirst: 100,
 	setThirst: (number: number) => set({ thirst: number }),
-	mental: 0,
+	mental: 100,
 	setMental: (number: number) => set({ mental: number }),
-	armor: 0,
+	armor: 100,
 	setArmor: (number: number) => set({ armor: number }),
 }));
 
