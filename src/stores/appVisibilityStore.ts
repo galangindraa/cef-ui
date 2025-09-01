@@ -108,4 +108,37 @@ const useAppVisibilitySpeedometer = create<AppVisibilityStateSpeedometer>((set) 
 	toggle: () => set((state) => ({ showApp: !state.showApp })),
 }));
 
-export { useAppVisibilitySkinMenu, useAppVisibilitySkinMenuList, useAppVisibilityStore, useAppVisibilityHud, useAppVisibilitySpeedometer };
+type AppVisibilityStateInventory = {
+	showApp: boolean;
+	setVisibility: (boolean: boolean) => void;
+	show: () => void;
+	hide: () => void;
+	toggle: () => void;
+	showOtherComponents: () => void;
+	hideOtherComponents: () => void;
+};	
+
+const useAppVisibilityInventory = create<AppVisibilityStateInventory>((set, get) => ({
+	showApp: false,
+	setVisibility: (boolean: boolean) => set({ showApp: boolean }),
+	show: () => set({ showApp: true }),
+	hide: () => set({ showApp: false }),
+	toggle: () => set((state) => ({ showApp: !state.showApp })),
+	showOtherComponents: () => {
+		useAppVisibilityStore.getState().show();
+		useAppVisibilitySkinMenu.getState().show();
+		useAppVisibilitySkinMenuList.getState().show();
+		useAppVisibilityHud.getState().show();
+		useAppVisibilitySpeedometer.getState().show();
+	},
+	hideOtherComponents: () => {
+		useAppVisibilityStore.getState().hide();
+		useAppVisibilitySkinMenu.getState().hide();
+		useAppVisibilitySkinMenuList.getState().hide();
+		useAppVisibilityHud.getState().hide();
+		useAppVisibilitySpeedometer.getState().hide();
+	},
+}));
+
+export { useAppVisibilitySkinMenu, useAppVisibilitySkinMenuList, useAppVisibilityStore, useAppVisibilityHud, useAppVisibilitySpeedometer, useAppVisibilityInventory };
+	
