@@ -45,8 +45,7 @@ export function RightInventory({ inventory }: { inventory: InventoryItem[] }) {
         setIsDragging(true);
         setMousePosition({ x: e.clientX, y: e.clientY });
         setHoveredItem(null);
-        
-        // RightInventory doesn't trigger Use/Give menu - only for item swapping
+        window.dispatchEvent(new CustomEvent('inventory:dragStart', { detail: item }));
     };
 
     const handleMouseUp = (targetSlot: number) => {
@@ -57,24 +56,44 @@ export function RightInventory({ inventory }: { inventory: InventoryItem[] }) {
             setIsDragging(false);
             setDragOffset({ x: 0, y: 0 });
             setHoveredItem(null);
-            
-            // RightInventory doesn't trigger Use/Give menu - only for item swapping
         }
     };
 
-    const handleGlobalMouseUp = () => {
-        if (isDragging) {
+
+    const handleGlobalMouseUp = (e: MouseEvent) => {
+        if (isDragging && draggedItem) {
+            const leftInventoryElement = document.querySelector('[data-inventory="left"]');
+            if (leftInventoryElement) {
+                const rect = leftInventoryElement.getBoundingClientRect();
+                const isOverLeftInventory = (
+                    e.clientX >= rect.left &&
+                    e.clientX <= rect.right &&
+                    e.clientY >= rect.top &&
+                    e.clientY <= rect.bottom
+                );
+                
+                if (isOverLeftInventory) {
+                    window.dispatchEvent(new CustomEvent('inventory:crossTake'));
+                    setDraggedItem(null);
+                    setIsDragging(false);
+                    setDragOffset({ x: 0, y: 0 });
+                    setHoveredItem(null);
+                    window.dispatchEvent(new CustomEvent('inventory:dragEnd'));
+                    return;
+                }
+            }
+            
             setDraggedItem(null);
             setIsDragging(false);
             setDragOffset({ x: 0, y: 0 });
             setHoveredItem(null);
-            
-            // RightInventory doesn't trigger Use/Give menu - only for item swapping
+            window.dispatchEvent(new CustomEvent('inventory:dragEnd'));
         }
     };
 
     React.useEffect(() => {
         document.addEventListener('mouseup', handleGlobalMouseUp);
+        
         return () => {
             document.removeEventListener('mouseup', handleGlobalMouseUp);
         };
@@ -101,6 +120,7 @@ export function RightInventory({ inventory }: { inventory: InventoryItem[] }) {
             gap="xs" 
             style={{ pointerEvents: "auto" }}
             onMouseMove={!isDragging ? handleMouseMove : undefined}
+            data-inventory="right"
         >
             <Group gap="10px" mt="5vh" align="flex-start">
                 <Box

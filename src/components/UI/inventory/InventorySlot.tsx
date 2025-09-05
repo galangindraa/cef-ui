@@ -6,6 +6,7 @@ export function InventorySlot({
     item,
     isDraggedSlot,
     isDragging,
+    inventorySide,
     onMouseEnter,
     onMouseLeave,
     onMouseDown,

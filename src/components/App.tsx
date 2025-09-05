@@ -1,4 +1,4 @@
-import { BackgroundImage, Button, MantineProvider } from '@mantine/core';
+import { BackgroundImage, Button, MantineProvider, Image } from '@mantine/core';
 import { MantineEmotionProvider } from '@mantine/emotion';
 import React from "react";
 import theme from '../theme';
@@ -11,11 +11,13 @@ import { HudUI } from './UI/hud';
 import { HudUISpeedometer } from './UI/spedometer';
 import Notifications from './UI/notify';
 import { Inventory } from './UI/inventory';
+import { Logo } from './UI/logo'
 const App: React.FC = () => {
   return (  
     <MantineEmotionProvider>
       <MantineProvider theme={theme} defaultColorScheme='dark'>
         <Wrapper>
+          <Logo />
           <Inventory />
           <Notifications />
           <UI />

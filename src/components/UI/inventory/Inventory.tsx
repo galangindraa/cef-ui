@@ -32,9 +32,8 @@ export function Inventory() {
         const response = await axios.get(`http://localhost:3001/getkrakterinventorydrop`, {
           params: { x, y, z, identifier }
         });
-        console.log(response.data.inventory)
+        console.log(response.data.inventory);
         setInventoryRight(response.data.inventory);
-        setVisibility(true);
       } catch (err) {
         setInventoryRight([]);
       }
@@ -65,8 +64,16 @@ export function Inventory() {
     });
 
     useCefEvent<string>("inventory:updateInventory", (identifier) => {
-      updateInventory(identifier);        
+      updateInventory(identifier);      
     });
+
+    // useCefEvent<string>("inventory:dropItem", (data) => {
+    //   console.log("Drop item:", data);
+    // });
+
+    // useCefEvent<string>("inventory:takeItem", (data) => {
+    //   console.log("Take item:", data);
+    // });
 
     useExitListener(setVisibility);
     

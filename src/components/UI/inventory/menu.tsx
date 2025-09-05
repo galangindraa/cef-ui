@@ -31,7 +31,6 @@ export function InventoryMenu() {
         }
     };
 
-    // Handle drop on button when drag ends
     const handleButtonDrop = (action: 'use' | 'give') => {
         if (draggedItem && hoveredButton === action) {
             if (action === 'use') {
@@ -56,14 +55,37 @@ export function InventoryMenu() {
             setDraggedItem(null);
         };
 
+        const handleCrossDrop = () => {
+            if (draggedItem) {
+                // if(amount >= draggedItem.amount)
+                // {
+                    const data = `${draggedItem.slot}|${amount}`;
+                    (window as any).cef.emit("inventory:dropItem", data);
+                    setDraggedItem(null);
+                //}
+            }
+        };
+
+        const handleCrossTake = () => {
+            if (draggedItem) {
+                const data = `${draggedItem.itemId}|${amount}`;
+                (window as any).cef.emit("inventory:takeItem", data);
+                setDraggedItem(null);
+            }
+        };
+
         window.addEventListener('inventory:dragStart', handleDragStart as EventListener);
         window.addEventListener('inventory:dragEnd', handleDragEnd as EventListener);
+        window.addEventListener('inventory:crossDrop', handleCrossDrop as EventListener);
+        window.addEventListener('inventory:crossTake', handleCrossTake as EventListener);
 
         return () => {
             window.removeEventListener('inventory:dragStart', handleDragStart as EventListener);
             window.removeEventListener('inventory:dragEnd', handleDragEnd as EventListener);
+            window.removeEventListener('inventory:crossDrop', handleCrossDrop as EventListener);
+            window.removeEventListener('inventory:crossTake', handleCrossTake as EventListener);
         };
-    }, [hoveredButton]);
+    }, [hoveredButton, amount, draggedItem]);
 
     return (
         <Stack 

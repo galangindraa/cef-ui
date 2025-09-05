@@ -1,7 +1,7 @@
 import { Stack, Group, Box, Text, Title, SimpleGrid, Image, ScrollArea, Divider } from "@mantine/core";
 import { Dumbbell } from "lucide-react";
 import { useState } from "react";
-import React from "react"; // Added missing import for React
+import React from "react";
 import { InventorySlot } from "./InventorySlot";
 import { InventorySide, InventoryItem } from "./types";
 
@@ -44,11 +44,7 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
         setDraggedItem(item);
         setIsDragging(true);
         setMousePosition({ x: e.clientX, y: e.clientY });
-        // Reset hover state when starting drag
         setHoveredItem(null);
-        
-        // Dispatch custom event for menu to detect drag start
-        // Only LeftInventory (player inventory) can trigger Use/Give menu
         window.dispatchEvent(new CustomEvent('inventory:dragStart', { detail: item }));
     };
 
@@ -61,26 +57,46 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
             setDragOffset({ x: 0, y: 0 });
             setHoveredItem(null);
             
-            // Dispatch custom event for menu to detect drag end
             window.dispatchEvent(new CustomEvent('inventory:dragEnd'));
         }
     };
 
-    const handleGlobalMouseUp = () => {
-        if (isDragging) {
+
+    const handleGlobalMouseUp = (e: MouseEvent) => {
+        if (isDragging && draggedItem) {
+            const rightInventoryElement = document.querySelector('[data-inventory="right"]');
+            if (rightInventoryElement) {
+                const rect = rightInventoryElement.getBoundingClientRect();
+                const isOverRightInventory = (
+                    e.clientX >= rect.left &&
+                    e.clientX <= rect.right &&
+                    e.clientY >= rect.top &&
+                    e.clientY <= rect.bottom
+                );
+                
+                if (isOverRightInventory) {
+                    window.dispatchEvent(new CustomEvent('inventory:crossDrop'));
+                    setDraggedItem(null);
+                    setIsDragging(false);
+                    setDragOffset({ x: 0, y: 0 });
+                    setHoveredItem(null);
+                    window.dispatchEvent(new CustomEvent('inventory:dragEnd'));
+                    return;
+                }
+            }
+            
             setDraggedItem(null);
             setIsDragging(false);
             setDragOffset({ x: 0, y: 0 });
-            // Reset hover state in global handler too
             setHoveredItem(null);
             
-            // Dispatch custom event for menu to detect drag end
             window.dispatchEvent(new CustomEvent('inventory:dragEnd'));
         }
     };
 
     React.useEffect(() => {
         document.addEventListener('mouseup', handleGlobalMouseUp);
+        
         return () => {
             document.removeEventListener('mouseup', handleGlobalMouseUp);
         };
@@ -107,6 +123,7 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
             gap="xs" 
             style={{ pointerEvents: "auto" }}
             onMouseMove={!isDragging ? handleMouseMove : undefined}
+            data-inventory="left"
         >
             <Group gap="10px" mt="5vh" align="flex-start">
                 <Box
