@@ -1,11 +1,11 @@
-import { Stack, Group, Box, Text, Title, SimpleGrid, Image, ScrollArea, Divider } from "@mantine/core";
-import { Dumbbell } from "lucide-react";
+import { Stack, Group, Box, Text, SimpleGrid, Image, ScrollArea, Divider } from "@mantine/core";
+import { Package } from "lucide-react";
 import { useState } from "react";
-import React from "react"; // Added missing import for React
+import React from "react";
 import { InventorySlot } from "./InventorySlot";
 import { InventorySide, InventoryItem } from "./types";
 
-export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
+export function RightInventory({ inventory }: { inventory: InventoryItem[] }) {
     const slots = Array.from({ length: 42 }, (_, index) => index);
     const [hoveredItem, setHoveredItem] = useState<InventoryItem | null>(null);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -44,12 +44,9 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
         setDraggedItem(item);
         setIsDragging(true);
         setMousePosition({ x: e.clientX, y: e.clientY });
-        // Reset hover state when starting drag
         setHoveredItem(null);
         
-        // Dispatch custom event for menu to detect drag start
-        // Only LeftInventory (player inventory) can trigger Use/Give menu
-        window.dispatchEvent(new CustomEvent('inventory:dragStart', { detail: item }));
+        // RightInventory doesn't trigger Use/Give menu - only for item swapping
     };
 
     const handleMouseUp = (targetSlot: number) => {
@@ -61,8 +58,7 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
             setDragOffset({ x: 0, y: 0 });
             setHoveredItem(null);
             
-            // Dispatch custom event for menu to detect drag end
-            window.dispatchEvent(new CustomEvent('inventory:dragEnd'));
+            // RightInventory doesn't trigger Use/Give menu - only for item swapping
         }
     };
 
@@ -71,11 +67,9 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
             setDraggedItem(null);
             setIsDragging(false);
             setDragOffset({ x: 0, y: 0 });
-            // Reset hover state in global handler too
             setHoveredItem(null);
             
-            // Dispatch custom event for menu to detect drag end
-            window.dispatchEvent(new CustomEvent('inventory:dragEnd'));
+            // RightInventory doesn't trigger Use/Give menu - only for item swapping
         }
     };
 
@@ -120,11 +114,11 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
                         justifyContent: "center",
                     }}
                 >
-                    <Dumbbell 
+                    <Package
                         size={25}
                         color="rgba(0, 191, 255, 0.637)"
                         style={{
-                            transform: "rotate(-95deg)",
+                            transform: "rotate(100deg)",
                         }}
                     />
                 </Box>
@@ -136,7 +130,7 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
                         p={0}
                         fw={600}
                     >
-                        Backpack
+                        Inventory
                     </Text>
                     <Text
                         fz="1.7vh"
@@ -171,7 +165,7 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
                                     item={item}
                                     isDraggedSlot={isDraggedSlot}
                                     isDragging={isDragging}
-                                    inventorySide={InventorySide.LEFT}
+                                    inventorySide={InventorySide.RIGHT}
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
                                     onMouseDown={handleMouseDown}
@@ -196,7 +190,7 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
                         pointerEvents: "none",
                         transform: "scale(1.1)",
                         filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5))",
-                        transition: "none", // Remove transition for smooth following
+                        transition: "none",
                     }}
                 >
                     <Box
@@ -269,4 +263,4 @@ export function LeftInventory({ inventory }: { inventory: InventoryItem[] }) {
             )}
         </Stack>
     )
-} 
+}
